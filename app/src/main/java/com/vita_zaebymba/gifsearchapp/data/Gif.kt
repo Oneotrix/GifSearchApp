@@ -7,4 +7,4 @@ data class Gif( //класс для хранения информации о GIF
     val previewUrl: String,
     val width: Int,
     val height: Int
-)
+) : java.io.Serializable
