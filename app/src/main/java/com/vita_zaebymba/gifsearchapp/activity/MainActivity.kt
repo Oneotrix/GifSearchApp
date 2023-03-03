@@ -24,8 +24,7 @@ class MainActivity : AppCompatActivity() {
         gifList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         val adapter = GifAdapter(emptyList()) { gif ->
-            val intent = Intent(this, GifDetailActivity::class.java) // при нажатии на любой элемент списка, создается новый интент
-            intent.putExtra(GifDetailActivity.EXTRA_GIF, gif.title) // передается выбранное изображение как дополнительная информация
+            val intent = GifDetailActivity.newIntent(this@MainActivity, gif)
             startActivity(intent)
         }
         gifList.adapter = adapter
