@@ -38,6 +38,13 @@ class GifDetailActivity : AppCompatActivity() {
         heightTextView = findViewById(R.id.gif_height)
 
         gif = intent.getSerializableExtra(EXTRA_GIF) as Gif
+
+        idTextView.text = gif.id
+        titleTextView.text = gif.title
+        urlTextView.text = gif.url
+        previewUrlTextView.text = gif.previewUrl
+        widthTextView.text = gif.width.toString()
+        heightTextView.text = gif.height.toString()
     }
 
     companion object {
