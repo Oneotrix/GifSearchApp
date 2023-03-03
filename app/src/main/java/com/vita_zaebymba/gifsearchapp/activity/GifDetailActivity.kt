@@ -1,5 +1,7 @@
 package com.vita_zaebymba.gifsearchapp.activity
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -26,5 +28,13 @@ class GifDetailActivity : AppCompatActivity() {
         gifTitle.text = gif.title
 
 
+    }
+
+    companion object {
+        fun newIntent(packageContext: Context, gif: Gif): Intent {
+            return Intent(packageContext, GifDetailActivity::class.java).apply {
+                putExtra(EXTRA_GIF, gif)
+            }
+        }
     }
 }
