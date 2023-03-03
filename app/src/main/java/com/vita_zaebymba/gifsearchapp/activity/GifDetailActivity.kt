@@ -28,6 +28,13 @@ class GifDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gif_detail)
 
+        idTextView = findViewById(R.id.gif_id)
+        titleTextView = findViewById(R.id.gif_title)
+        urlTextView = findViewById(R.id.gif_url)
+        previewUrlTextView = findViewById(R.id.gif_previewUrl)
+        widthTextView = findViewById(R.id.gif_width)
+        heightTextView = findViewById(R.id.gif_height)
+
     }
 
     companion object {
