@@ -6,10 +6,14 @@ import android.widget.TextView
 import com.vita_zaebymba.gifsearchapp.data.Gif
 import com.vita_zaebymba.gifsearchapp.R
 
-class GifDetailActivity : AppCompatActivity() { // класс для отображения подробной информации о выбранном GIF-изображении
-    companion object {
-        const val EXTRA_GIF = "extra_gif" // константа используется для передачи экземпляра класса Gif между различными компонентами приложения
-    }
+// константа используется для передачи экземпляра класса Gif между различными компонентами приложения
+// дополнение ключа именем пакета предотвращает конфликт имен с дополнениями других пакетов
+private const val EXTRA_GIF = "com.vita_zaebymba.gifsearchapp.extra_gif"
+
+/**
+ * класс для отображения подробной информации о выбранном GIF-изображении
+ * */
+class GifDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
