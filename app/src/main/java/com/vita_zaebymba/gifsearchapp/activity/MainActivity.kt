@@ -1,4 +1,4 @@
-package com.vita_zaebymba.gifsearchapp
+package com.vita_zaebymba.gifsearchapp.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,8 +7,10 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.vita_zaebymba.gifsearchapp.adapter.GifAdapter
+import com.vita_zaebymba.gifsearchapp.GiphyClient
+import com.vita_zaebymba.gifsearchapp.R
 import kotlinx.coroutines.launch
-import java.io.Serializable
 
 class MainActivity : AppCompatActivity() {
     private val giphyClient = GiphyClient() // создает экземпляр GiphyClient и использует его для получения популярных GIF-изображений с помощью метода getTrendingGifs()
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = GifAdapter(emptyList()) { gif ->
             val intent = Intent(this, GifDetailActivity::class.java) // при нажатии на любой элемент списка, создается новый интент
-            intent.putExtra(GifDetailActivity.EXTRA_GIF, gif.title) // передается выбранное изображение как дополнительная информация 
+            intent.putExtra(GifDetailActivity.EXTRA_GIF, gif.title) // передается выбранное изображение как дополнительная информация
             startActivity(intent)
         }
         gifList.adapter = adapter

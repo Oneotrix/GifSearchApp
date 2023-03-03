@@ -1,8 +1,10 @@
-package com.vita_zaebymba.gifsearchapp
+package com.vita_zaebymba.gifsearchapp.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.vita_zaebymba.gifsearchapp.data.Gif
+import com.vita_zaebymba.gifsearchapp.R
 
 class GifDetailActivity : AppCompatActivity() { // класс для отображения подробной информации о выбранном GIF-изображении
     companion object {

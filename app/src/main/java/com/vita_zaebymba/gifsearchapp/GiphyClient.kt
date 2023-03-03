@@ -1,5 +1,6 @@
 package com.vita_zaebymba.gifsearchapp
 
+import com.vita_zaebymba.gifsearchapp.data.Gif
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
