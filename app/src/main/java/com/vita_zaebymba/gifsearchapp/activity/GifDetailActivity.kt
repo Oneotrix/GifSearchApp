@@ -17,16 +17,16 @@ private const val EXTRA_GIF = "com.vita_zaebymba.gifsearchapp.extra_gif"
  * */
 class GifDetailActivity : AppCompatActivity() {
 
+    private lateinit var idTextView: TextView
+    private lateinit var titleTextView: TextView
+    private lateinit var urlTextView: TextView
+    private lateinit var previewUrlTextView: TextView
+    private lateinit var widthTextView: TextView
+    private lateinit var heightTextView: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gif_detail)
-
-        val gif: Gif = intent.getParcelableExtra(EXTRA_GIF)!!
-
-
-        val gifTitle: TextView = findViewById(R.id.gif_title) // текстовому полю gifTitle устанавливается текст заголовка GIF-изображения с помощью метода setText, используя свойство title объекта gif
-        gifTitle.text = gif.title
-
 
     }
 
