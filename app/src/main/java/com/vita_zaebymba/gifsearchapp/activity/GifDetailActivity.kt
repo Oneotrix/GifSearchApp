@@ -24,6 +24,8 @@ class GifDetailActivity : AppCompatActivity() {
     private lateinit var widthTextView: TextView
     private lateinit var heightTextView: TextView
 
+    private lateinit var gif: Gif
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gif_detail)
@@ -35,6 +37,7 @@ class GifDetailActivity : AppCompatActivity() {
         widthTextView = findViewById(R.id.gif_width)
         heightTextView = findViewById(R.id.gif_height)
 
+        gif = intent.getSerializableExtra(EXTRA_GIF) as Gif
     }
 
     companion object {
