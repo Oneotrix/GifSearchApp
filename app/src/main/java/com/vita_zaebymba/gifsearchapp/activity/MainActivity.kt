@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vita_zaebymba.gifsearchapp.adapter.GifAdapter
 import com.vita_zaebymba.gifsearchapp.GiphyClient
 import com.vita_zaebymba.gifsearchapp.R
+import com.vita_zaebymba.gifsearchapp.coroutine.Coroutine
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -29,11 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
         gifList.adapter = adapter
 
-        lifecycleScope.launch { // корутина, которая асинхронно получает список популярных GIF-изображений из API Giphy и устанавливает его в адаптер RecyclerView
-            val gifs = giphyClient.getTrendingGifs()
-            adapter.gifs = gifs
-            adapter.notifyDataSetChanged()
-        }
+        Coroutine.coroutineTrendingGifs(lifecycleScope, giphyClient, adapter)
     }
 
 }
