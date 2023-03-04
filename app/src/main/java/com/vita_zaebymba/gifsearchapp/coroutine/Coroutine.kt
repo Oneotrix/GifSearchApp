@@ -18,5 +18,16 @@ class Coroutine {
                 adapter.notifyDataSetChanged()
             }
         }
+
+        fun coroutineSearchGifs(lifecycleScope: LifecycleCoroutineScope,
+                                giphyClient: GiphyClient,
+                                adapter: GifAdapter,
+                                searchString: String) {
+            lifecycleScope.launch {
+                val gifs = giphyClient.getSearchGifs(searchString)
+                adapter.gifs = gifs
+                adapter.notifyDataSetChanged()
+            }
+        }
     }
 }
