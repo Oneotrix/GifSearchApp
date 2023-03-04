@@ -31,4 +31,22 @@ class GiphyClient { // Класс GiphyClient представляет клие�
             emptyList()
         }
     }
+
+    suspend fun getSearchGifs(text: String) : List<Gif> {
+        val response = service.getSearchGifs(q = text)
+        return if (response.isSuccessful) {
+            response.body()?.data?.map { gif ->
+                Gif(
+                    id = gif.id,
+                    title = gif.title,
+                    url = gif.images.fixedWidth.url,
+                    previewUrl = gif.images.fixedWidth.url,
+                    width = gif.images.fixedWidth.width,
+                    height = gif.images.fixedWidth.height
+                )
+            } ?: emptyList()
+        } else {
+            emptyList()
+        }
+    }
 }
