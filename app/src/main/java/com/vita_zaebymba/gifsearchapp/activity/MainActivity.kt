@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.EditText
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,8 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private val giphyClient = GiphyClient() // создает экземпляр GiphyClient и использует его для получения популярных GIF-изображений с помощью метода getTrendingGifs()
+
+    private lateinit var editText: EditText
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
