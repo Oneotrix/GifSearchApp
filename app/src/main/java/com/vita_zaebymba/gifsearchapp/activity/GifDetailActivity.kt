@@ -11,6 +11,7 @@ import com.vita_zaebymba.gifsearchapp.R
 // константа используется для передачи экземпляра класса Gif между различными компонентами приложения
 // дополнение ключа именем пакета предотвращает конфликт имен с дополнениями других пакетов
 private const val EXTRA_GIF = "com.vita_zaebymba.gifsearchapp.extra_gif"
+private const val TAG = "GIF"
 
 /**
  * класс для отображения подробной информации о выбранном GIF-изображении
@@ -37,7 +38,11 @@ class GifDetailActivity : AppCompatActivity() {
         widthTextView = findViewById(R.id.gif_width)
         heightTextView = findViewById(R.id.gif_height)
 
-        gif = intent.getSerializableExtra(EXTRA_GIF) as Gif
+        gif = if (savedInstanceState == null) {
+            intent.getSerializableExtra(EXTRA_GIF) as Gif
+        } else {
+            savedInstanceState.getSerializable(TAG) as Gif
+        }
 
         idTextView.text = gif.id
         titleTextView.text = gif.title
@@ -45,6 +50,11 @@ class GifDetailActivity : AppCompatActivity() {
         previewUrlTextView.text = gif.previewUrl
         widthTextView.text = gif.width.toString()
         heightTextView.text = gif.height.toString()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putSerializable(TAG,gif)
     }
 
     companion object {
